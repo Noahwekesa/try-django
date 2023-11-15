@@ -1,12 +1,15 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
-def home_view(request, *args, **kwargs):
-    return render(request, "home.html", {})  #string for HTML code
 
-def contact_view(request, *args, **kwargs):
-    return render(request, "contact.html")
+def home_view(request):
+    return render(request, "index.html", {})
 
-def about_view(request, *args, **kwargs):
-    return render(request, "about.html")
+def contact_view(request):
+    return render(request, "contact.html", {})
+
+def about_view(request):
+    return render(request, 'about.html', {})
+
+def social_view(request):
+    return render(request, 'social.html', {})
