@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="d-flex align-items-center py-4 bg-body-tertiary">
+<div class="form-signin w-100 m-auto">
+  <form method="post">
+{% csrf_token %}
+      {% if error %}
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+</div>
+      {% endif %}
+    <div class="form-floating">
+        <p>Are you sure you want to logout?</p>
+    </div>
+    <button class="btn btn-danger w-100 py-2 fw-bold" type="submit">Log Out</button>
+  </form>
+</div>
+
+</div>
+{% endblock content %}
