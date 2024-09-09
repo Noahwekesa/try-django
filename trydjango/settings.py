@@ -1,17 +1,27 @@
+import environ
+import os
 from pathlib import Path
+
+env = environ.Env(
+    # set cating, default value
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# django-environ
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "i&ec&^czqzuw9f$whdl4^&_qlc%he$7-%s=um5aj&07w1(p!m4"
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -30,6 +40,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap4",
     # My apps
     "accounts",
+    "articles",
 ]
 
 MIDDLEWARE = [
