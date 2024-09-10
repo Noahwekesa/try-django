@@ -24,7 +24,8 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = []
-
+if not DEBUG:
+    ALLOWED_HOSTS += [env("ALLOWED_HOSTS")]
 
 # Application definition
 
