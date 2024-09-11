@@ -21,7 +21,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DJANGO_DEBUG")
+DEBUG = env("DJANGO_DEBUG") == "1"
 
 ENV_ALLOWED_HOST = env("DJANGO_ALLOWED_HOST") or None
 ALLOWED_HOSTS = []
